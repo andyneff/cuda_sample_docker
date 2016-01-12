@@ -8,5 +8,5 @@ build:
 
 run:
 	docker run -it --rm \
-	           $(ls /dev/nvidia* | sed 's|^|--device |') \
+	           $$(ls /dev/nvidia* | sed 's|^|--device |') \
 	           cuda_example
