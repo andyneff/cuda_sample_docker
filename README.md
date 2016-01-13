@@ -29,8 +29,16 @@ pre-building images to ship, don't do this. For example:
 
 Now changing versions of cuda, is much... safer. The rule is: Your nvidia driver
 can support up to a specific version of cuda. It will also work with versions older
-than that version, but now newer... I do not have a reliable way of knowing the max
-version. It's not documented clearly. To make with a specific version of cuda
+than that version, but now newer... To make with a specific version of cuda
 
     make CUDA_VERSION=7.0
 
+The only reliable way I know to check what the maximum version of cuda your 
+nvidia driver will support is to run the deviceQuery sample cuda program, and 
+look at the final lines. Similar to this:
+
+    deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 7.5, CUDA Runtime Version = 5.5, NumDevs = 3, Device0 = Tesla K20c, Device1 = GeForce GTX 580, Device2 = GeForce GTX 680
+    Result = PASS
+
+This says that while I'm using cuda 5.5 for this test, My nvidia driver 
+version (352.55 in this case) can support up to cuda 7.5. 
