@@ -1,0 +1,7 @@
+FROM centos:7
+
+VOLUME /usr/local/nvidia
+
+CMD mkdir -p /usr/local/nvidia/bin && \
+    cp -a /hostbin/nvidia* /usr/local/nvidia/bin/ && \
+    cp -ra /hostlib64 /usr/local/nvidia/lib64
